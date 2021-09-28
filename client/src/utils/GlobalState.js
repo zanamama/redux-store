@@ -1,7 +1,4 @@
-import React, { createContext, useContext } from "react";
-import { useProductReducer } from "./reducers";
+import React, { createStore } from "redux";
+import { reducer } from "./reducers";
 
-const StoreContext = createContext();
-const { Provider } = StoreContext;
-
-export { StoreProvider, useStoreContext };
+export default createStore(reducer);
