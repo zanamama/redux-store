@@ -1,24 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { pluralize } from "../../utils/helpers";
-import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
-import spinner from "../../assets/spinner.gif";
 import { useDispatch, useSelector } from "react-redux";
 
 function ProductItem(item) {
   const dispatch = useDispatch();
 
-  const {
-    image,
-    name,
-    _id,
-    price,
-    quantity
-  } = item;
+  const { image, name, _id, price, quantity } = item;
 
-  const { cart } = useSelector(state => state)
+  const { cart } = useSelector((state) => state);
 
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === _id);
